@@ -11,6 +11,7 @@ $callback = function (AMQPMessage $message)use ($channel) {
     echo $message->body . PHP_EOL;
     //sleep(3);
     $channel->basic_ack($message->delivery_info['delivery_tag']);
+    // $channel->basic_nack($message->delivery_info['delivery_tag']);
 };
 
 $channel->basic_consume('log_queue','', false, false, false, false, $callback);
