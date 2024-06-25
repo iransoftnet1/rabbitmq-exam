@@ -15,6 +15,7 @@ $channel->queue_bind($queueName,'purgeDataFanout');
 
 $callback = function (AMQPMessage $message) use ($channel) {
     echo $message->body . PHP_EOL;
+    echo $message->delivery_info['routing_key'];
 };
 
 $channel->basic_consume($queueName, '', false, true, false, false, $callback);
