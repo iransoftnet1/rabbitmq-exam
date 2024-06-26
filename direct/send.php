@@ -20,6 +20,7 @@ $message = new AMQPMessage('Test Message', [
      */
     'delivery_mode' => 2,
     'app_id' => '11',
+    'user_id' => 'admin',
     'type' => 'exchange.queue',
     'headers' => [
         'foo' => 'bar',
